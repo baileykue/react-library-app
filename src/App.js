@@ -1,6 +1,7 @@
 import BookList from './views/Books/BookList';
+import BookDetail from './views/Books/BookDetail';
 import './App.css';
-import { BrowserRouter, NavLink, Link, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, NavLink, Switch, Route } from 'react-router-dom';
 
 function App() {
   // TODO: Add routes to books & views
@@ -9,12 +10,14 @@ function App() {
       <h1>Library Catalog</h1>
       <BrowserRouter>
         <p>
+          Check out the amazing selection of books in our &nbsp;
           <NavLink exact to="/books">
-            Home
+            catalog
           </NavLink>
         </p>
 
         <Switch>
+          <Route path="/books/:id" component={BookDetail} />
           <Route path="/books" component={BookList} />
         </Switch>
       </BrowserRouter>
